@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案件一覧｜営業案件情報管理システム</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html"><span class="logo"></span>営業案件情報管理システム</a>
+      <nav class="header-nav" id="header-nav"></nav>
+    </div>
+  </header>
+
+  <div class="sample-banner" role="note">
+    <div class="sample-banner-title">サンプルシステム（デモ用プロトタイプ）</div>
+    <div class="sample-banner-text">表示されている案件はすべて架空のデータです。実在の企業・案件とは関係ありません。</div>
+  </div>
+
+  <main class="container">
+    <div class="page-title-row">
+      <div>
+        <h1 class="page-title">案件一覧</h1>
+        <p class="page-sub">条件を組み合わせて、自分に合った案件を探せます。</p>
+      </div>
+      <a class="btn btn-primary" id="new-btn" href="login.html?next=edit.html">＋ 新規案件を登録（管理者用）</a>
+    </div>
+
+    <div id="error-area"></div>
+
+    <form id="search-form" class="card search-panel" role="search" autocomplete="off">
+      <div class="search-main">
+        <input type="search" id="q" name="q" placeholder="フリーワードで横断検索（スペース区切りでAND）" aria-label="フリーワード検索">
+        <button type="submit" class="btn btn-primary">検索</button>
+      </div>
+
+      <button type="button" class="search-detail-toggle" id="toggle-detail" aria-expanded="false">▼ 項目を指定して検索</button>
+      <div class="search-detail" id="search-detail">
+        <div class="grid-3">
+          <div class="field"><label for="name">案件名</label><input type="text" id="name" name="name" placeholder="例：AWS"></div>
+          <div class="field"><label for="content">業務内容</label><input type="text" id="content" name="content" placeholder="例：API設計"></div>
+          <div class="field"><label for="qualification">応募資格（必須・歓迎・人物像）</label><input type="text" id="qualification" name="qualification" placeholder="例：Python 3年"></div>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <div class="field"><label for="domain">領域</label><select id="domain" name="domain"><option value="">すべて</option></select></div>
+        <div class="field"><label for="location">勤務地</label><select id="location" name="location"><option value="">すべて</option></select></div>
+        <div class="field"><label for="price">単価帯（月額）</label><select id="price" name="price"><option value="">すべて</option></select></div>
+        <div class="field clear-wrap"><button type="button" class="btn btn-secondary" id="clear-btn">条件をクリア</button></div>
+      </div>
+    </form>
+
+    <div class="result-bar">
+      <div class="counts" aria-live="polite">
+        <span id="count-area"></span>
+      </div>
+      <div class="sort-box">
+        <label for="sort">並び順</label>
+        <select id="sort" name="sort">
+          <option value="new">新着順</option>
+          <option value="price_desc">単価が高い順</option>
+          <option value="price_asc">単価が低い順</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="list-area"></div>
+  </main>
+
+  <footer class="site-footer">社内DX改善提案用プロトタイプ ／ 掲載内容はすべて架空のサンプルです</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/list.js"></script>
+</body>
+</html>

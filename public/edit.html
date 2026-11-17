@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案件登録・編集｜営業案件情報管理システム</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html"><span class="logo"></span>営業案件情報管理システム</a>
+      <nav class="header-nav" id="header-nav"></nav>
+    </div>
+  </header>
+
+  <div class="sample-banner" role="note">
+    <div class="sample-banner-title">サンプルシステム（デモ用プロトタイプ）</div>
+    <div class="sample-banner-text">表示されている案件はすべて架空のデータです。実在の企業・案件とは関係ありません。</div>
+  </div>
+
+  <main class="container">
+    <div class="breadcrumb"><a href="index.html" id="crumb-list">案件一覧</a> ＞ 案件登録</div>
+    <div class="page-title-row">
+      <div>
+        <h1 class="page-title">案件を登録</h1>
+        <p class="page-sub"><span class="req" style="margin-left:0">必須</span> の項目は必ず入力してください。※サンプルのため、登録しても実際には保存されません。</p>
+      </div>
+    </div>
+
+    <div id="error-area"></div>
+
+    <form id="project-form" novalidate autocomplete="off">
+      <section class="card form-card">
+        <h2>基本情報</h2>
+        <div class="form-grid">
+          <div class="field full" data-field="project_name">
+            <label for="project_name">案件名<span class="req">必須</span></label>
+            <input type="text" id="project_name" name="project_name" maxlength="100" placeholder="例：AWS基盤の構築・運用自動化">
+            <div class="error-text"></div>
+          </div>
+          <div class="field full" data-field="business_content">
+            <label for="business_content">業務内容<span class="req">必須</span></label>
+            <textarea id="business_content" name="business_content" rows="6" maxlength="3000" placeholder="担当する業務の内容を入力してください"></textarea>
+            <div class="error-text"></div>
+          </div>
+          <div class="field" data-field="domain">
+            <label for="domain">領域<span class="req">必須</span></label>
+            <select id="domain" name="domain"><option value="">選択してください</option></select>
+            <div class="error-text"></div>
+          </div>
+          <div class="field" data-field="unit_price">
+            <label for="unit_price">単価<span class="req">必須</span></label>
+            <div class="price-input">
+              <input type="number" id="unit_price" name="unit_price" min="1" max="500" step="1" inputmode="numeric" placeholder="例：80">
+              <span>万円 / 月</span>
+            </div>
+            <div class="hint">月額を万円単位の整数で入力（1〜500）</div>
+            <div class="error-text"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card form-card">
+        <h2>応募資格</h2>
+        <div class="field" data-field="must_requirements">
+          <label for="must_requirements">必須（MUST）</label>
+          <textarea id="must_requirements" name="must_requirements" rows="5" maxlength="3000" placeholder="・Javaでの開発経験 3年以上"></textarea>
+          <div class="error-text"></div>
+        </div>
+        <div class="field" data-field="want_requirements">
+          <label for="want_requirements">歓迎（WANT）</label>
+          <textarea id="want_requirements" name="want_requirements" rows="5" maxlength="3000" placeholder="・AWS認定資格をお持ちの方"></textarea>
+          <div class="error-text"></div>
+        </div>
+        <div class="field" data-field="ideal_personality">
+          <label for="ideal_personality">人物像</label>
+          <textarea id="ideal_personality" name="ideal_personality" rows="3" maxlength="2000" placeholder="チームでのコミュニケーションを大切にできる方"></textarea>
+          <div class="error-text"></div>
+        </div>
+      </section>
+
+      <section class="card form-card">
+        <h2>労働条件</h2>
+        <div class="form-grid">
+          <div class="field" data-field="work_location">
+            <label for="work_location">勤務地</label>
+            <input type="text" id="work_location" name="work_location" maxlength="100" placeholder="例：東京都千代田区（週2日リモート可）">
+            <div class="hint">都道府県名から入力すると、一覧の勤務地絞り込みに反映されます。</div>
+            <div class="error-text"></div>
+          </div>
+          <div class="field" data-field="working_hours">
+            <label for="working_hours">勤務時間</label>
+            <input type="text" id="working_hours" name="working_hours" maxlength="200" placeholder="例：9:00〜18:00（実働8時間）">
+            <div class="error-text"></div>
+          </div>
+          <div class="field full" data-field="holidays">
+            <label for="holidays">休日・休暇</label>
+            <textarea id="holidays" name="holidays" rows="2" maxlength="500" placeholder="例：土日祝、年末年始、有給休暇"></textarea>
+            <div class="error-text"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="form-actions" style="justify-content:flex-end">
+        <div class="right">
+          <a class="btn btn-secondary" id="cancel-btn" href="index.html">キャンセル</a>
+          <button type="submit" class="btn btn-primary" id="submit-btn">内容を確認して登録</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">社内DX改善提案用プロトタイプ ／ 掲載内容はすべて架空のサンプルです</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/edit.js"></script>
+</body>
+</html>
